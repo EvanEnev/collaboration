@@ -1,0 +1,9 @@
+.formInput:focus-within label {
+  transform: translateY(-100%);
+  font-size: 14px;
+}
+
+.filled {
+  transform: translateY(-100%);
+  font-size: 14px;
+}
