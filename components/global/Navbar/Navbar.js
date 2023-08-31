@@ -16,27 +16,27 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="flex flex-wrap items-center w-full justify-around h-full border-b-[1px] border-b-white border-opacity-20 ">
+    <div className="flex flex-wrap items-center w-full justify-around border-b-[1px] border-b-white border-opacity-20 ">
       <Link href="#" className="text-[32px] my-[35px]">
         LOGO
       </Link>
-      <div className="flex flex-wrap gap-[47px] h-full">
-        {pages.map(item => {
-          const style = `h-full uppercase hover:opacity-100 transition-opacity ${
+      <menu className="flex flex-wrap gap-[47px] items-center list-none">
+        {pages.map((item, index) => {
+          const style = `relative uppercase hover:opacity-100 transition-opacity ${
             page === item.name
-              ? 'opacity-100 border-b-white border-b-[1px]'
+              ? 'opacity-100 before:absolute before:bottom-[-48px] before:bg-white before:h-[1px] before:w-full'
               : 'opacity-50'
           }`;
 
           return (
-            <Link href={item.url} key={pages.indexOf(item)} legacyBehavior>
-              <a className={style} onClick={() => setPage(item.name)}>
-                {item.name}
-              </a>
-            </Link>
+            <li className={style} key={index}>
+              <Link href={item.url} legacyBehavior>
+                <a onClick={() => setPage(item.name)}>{item.name}</a>
+              </Link>
+            </li>
           );
         })}
-      </div>
+      </menu>
     </div>
   );
 }
